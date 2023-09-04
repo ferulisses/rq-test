@@ -1,6 +1,6 @@
 from redis import Redis
 from rq import Worker, Queue, Connection, Callback
-from src.funcs import test_return_dict, job_load_success, job_load_failure, job_load_stopped
+from src.funcs import test_return_dict, job_success, job_failure, job_stopped
 import config
 
 
@@ -12,7 +12,7 @@ if __name__ == '__main__':
     test_return_dict()
 
     q.enqueue(test_return_dict, {},
-                on_success=job_load_success, 
-                on_failure=job_load_failure,
-                on_stopped=job_load_stopped)
+                on_success=job_success, 
+                on_failure=job_failure,
+                on_stopped=job_stopped)
 

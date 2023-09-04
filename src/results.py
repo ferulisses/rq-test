@@ -1,7 +1,7 @@
 from redis import Redis
 from rq.job import Job
 from rq import Worker, Queue, Connection, Callback
-from src.funcs import test_return_dict, job_load_success, job_load_failure, job_load_stopped
+from src.funcs import test_return_dict, job_success, job_failure, job_stopped
 import config
 
 
